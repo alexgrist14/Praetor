@@ -1,0 +1,18 @@
+CREATE TABLE IF NOT EXISTS media (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    path TEXT NOT NULL UNIQUE,
+    hash TEXT NOT NULL,
+    media_type TEXT NOT NULL CHECK(media_type IN ('image','video')),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS tags (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS media_tags (
+    media_id INTEGER REFERENCES media(id),
+    tag_id INTEGER REFERENCES tags(id),
+    PRIMARY KEY (media_id, tag_id)
+);

@@ -26,6 +26,8 @@ tauri-plugin-dialog = "2"
 image = "0.25.10"
 blake3 = "1.8.3"
 rayon = "1.11.0"
+ffmpeg-sidecar = "2.4.0"
+rusqlite = { version = "0.39.0", features = ["bundled"] }
 
 [profile.dev.package."*"]
 opt-level = 3
